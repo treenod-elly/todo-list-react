@@ -5,6 +5,10 @@ $completedColor: #d6d9dd;
   overflow: scroll;
   margin-bottom: 1rem;
 
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+
   p {
     padding: 0 3rem;
   }

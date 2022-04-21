@@ -27,10 +27,10 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <TodoDate />
       <div className="logo">
         <img src={logo} className="App-logo" alt="logo" />
       </div>
+      <TodoDate />
       <TodoList todos={todos} />
       <TodoCreate addTodo={addTodo} />
     </div>
