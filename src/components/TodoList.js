@@ -1,4 +1,5 @@
 import React from "react"
+import "./TodoList.scss"
 import { BiCheckCircle, BiCircle } from "react-icons/bi"
 const TodoItem = ({ todo }) => {
   return (
