@@ -9,7 +9,7 @@ import TodoCreate from "./components/TodoCreate"
 
 function App() {
   const [todos, setTodos] = useState([])
-  const addTodo = (title) =>
+  const onCreate = (title) =>
     setTodos([
       ...todos,
       {
@@ -18,6 +18,11 @@ function App() {
         completed: false,
       },
     ])
+  const onToggle = (id) =>
+    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)))
+
+  const onRemove = (id) => setTodos(todos.filter((todo) => todo.id !== id))
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("https://jsonplaceholder.typicode.com/todos?userId=1")
@@ -31,8 +36,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </div>
       <TodoDate />
-      <TodoList todos={todos} />
-      <TodoCreate addTodo={addTodo} />
+      <TodoList todos={todos} onToggle={onToggle} onRemove={onRemove} />
+      <TodoCreate onCreate={onCreate} />
     </div>
   )
 }

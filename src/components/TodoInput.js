@@ -1,6 +1,7 @@
 import React, { useState } from "react"
+import "./TodoInput.scss"
 
-const TodoInput = ({ addTodo }) => {
+const TodoInput = ({ onCreate, setIsShow }) => {
   const [input, setInput] = useState("")
   return (
     <div className="TodoCreate">
@@ -10,8 +11,9 @@ const TodoInput = ({ addTodo }) => {
         </div>
         <button
           onClick={() => {
-            addTodo(input)
+            onCreate(input)
             setInput("")
+            setIsShow(false)
           }}
         >
           Add
